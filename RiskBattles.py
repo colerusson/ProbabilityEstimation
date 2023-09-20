@@ -11,13 +11,11 @@ def main1(games):
     for i in range(6):
         attacker_army_losses = 0
         defender_army_losses = 0
-
         for j in range(games):
             attacker = random.choices(dice, k=attacker_dice_choices[i])
             defender = random.choices(dice, k=defender_dice_choices[i])
             attacker.sort(reverse=True)
             defender.sort(reverse=True)
-
             if attacker[0] > defender[0]:
                 defender_army_losses += 1
             else:
@@ -142,13 +140,8 @@ def main3(games):
 
 if __name__ == "__main__":
     outcome1 = main1(100000)
-    print(outcome1)
-
     outcome2 = main2(10000)
-    print(outcome2)
-
     attackerOutcome, defenderOutcome = main3(100000)
-    print(attackerOutcome, defenderOutcome)
 
     plt.figure(1)
     plt.plot(["3:2", "3:1", "2:2", "2:1", "1:2", "1:1"], [outcome1[i][2] for i in range(6)], label="Attacker")
